@@ -3,9 +3,11 @@ from strutils import parseInt
 
 
 proc fibonacci(n: int): int =
-  # nが1未満の場合、例外[AssertionError]を送出する
-  assert(n >= 1)
-  if n < 3:
+  # nが0未満の場合、例外[AssertionError]を送出する
+  assert(n >= 0)
+  if n == 0:
+    return 0
+  elif n == 1:
     return 1
   else:
     return fibonacci(n - 2) + fibonacci(n - 1)
